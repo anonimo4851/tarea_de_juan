@@ -1,0 +1,699 @@
+/* ============================================================
+   📦 1. RESET Y CONFIGURACIÓN GLOBAL
+   ============================================================ */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	min-height: 100dvh;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 40px 20px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: #e0e0e0;
+	line-height: 1.6;
+	background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+	background-attachment: fixed;
+	box-sizing: border-box;
+	position: relative; /* Necesario para el pseudo-elemento ::before */
+}
+
+/* ============================================================
+   📦 2. CONTENEDOR PRINCIPAL
+   ============================================================ */
+body > *:not(style) {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 40px 50px;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-left: 3px solid rgba(79, 172, 254, 0.15);
+	border-right: 3px solid rgba(79, 172, 254, 0.15);
+	box-shadow:
+		0 25px 50px -12px rgba(0, 0, 0, 0.8),
+		inset 0 0 80px rgba(79, 172, 254, 0.03);
+	box-sizing: border-box;
+	overflow: hidden;
+	min-height: calc(100vh - 80px);
+	min-height: calc(100dvh - 80px);
+}
+
+/* ============================================================
+   📦 3. TIPOGRAFÍA - TÍTULOS
+   ============================================================ */
+h1 {
+	font-size: 2.8rem;
+	font-weight: 800;
+	text-align: center;
+	color: #ffffff;
+	text-shadow:
+		0 0 20px rgba(245, 87, 108, 0.6),
+		0 0 40px rgba(79, 172, 254, 0.4),
+		0 4px 20px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	letter-spacing: -0.5px;
+	max-width: 100%;
+	word-wrap: break-word;
+	background-size: 200% auto;
+	animation: shimmer 3s linear infinite;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #4facfe !important;
+	margin: 30px 0 15px 0;
+	padding-bottom: 10px;
+	border-bottom: 3px solid rgba(79, 172, 254, 0.3);
+	text-shadow: 0 2px 20px rgba(79, 172, 254, 0.3);
+	max-width: 100%;
+	word-wrap: break-word;
+	width: 100% !important;
+	display: block !important;
+	box-sizing: border-box;
+}
+
+h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #f093fb !important;
+	margin: 25px 0 10px 0;
+	text-shadow: 0 2px 20px rgba(240, 147, 251, 0.3);
+	max-width: 100%;
+	word-wrap: break-word;
+}
+
+h4 {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: #ffffff !important;
+	margin: 20px 0 15px 0;
+	text-align: center;
+	letter-spacing: 2px;
+	text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+	max-width: 100%;
+	word-wrap: break-word;
+}
+
+/* ============================================================
+   📦 4. PÁRRAFOS Y TEXTO
+   ============================================================ */
+p {
+	font-size: 1.05rem;
+	color: #d4d4d4;
+	margin-bottom: 18px;
+	padding: 15px 20px;
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 12px;
+	border-left: 4px solid #4facfe;
+	transition: all 0.3s ease;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+p:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-left-color: #f5576c;
+	transform: translateX(5px);
+}
+
+strong {
+	color: #f093fb;
+	font-weight: 700;
+}
+
+/* ============================================================
+   📦 5. ENLACES Y LISTAS
+   ============================================================ */
+a {
+	color: #4facfe;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-weight: 600;
+}
+
+a:hover {
+	color: #f5576c;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+/* --- Menú principal --- */
+ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	justify-content: center;
+	margin: 30px 0 20px 0;
+	padding: 0;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+ul li {
+	background: rgba(255, 255, 255, 0.06);
+	border-radius: 50px;
+	padding: 12px 28px;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	max-width: 100%;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+ul li:hover {
+	transform: translateY(-3px) scale(1.02);
+	background: rgba(245, 87, 108, 0.15);
+	border-color: #f5576c;
+	box-shadow: 0 10px 25px -8px rgba(245, 87, 108, 0.3);
+}
+
+ul li a {
+	color: #e0e0e0;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1rem;
+	transition: all 0.3s ease;
+	display: block;
+}
+
+ul li a:hover {
+	color: #f5576c;
+	text-shadow: 0 0 20px rgba(245, 87, 108, 0.5);
+	text-decoration: none;
+}
+
+/* --- Botón "Atrás" --- */
+h2 a,
+h3 a {
+	display: inline-block;
+	background: rgba(79, 172, 254, 0.15);
+	padding: 10px 30px;
+	border-radius: 50px;
+	border: 1px solid rgba(79, 172, 254, 0.2);
+	transition: all 0.3s ease;
+	font-size: 1.1rem;
+	color: #4facfe;
+	text-decoration: none;
+}
+
+h2 a:hover,
+h3 a:hover {
+	background: rgba(245, 87, 108, 0.2);
+	border-color: #f5576c;
+	color: #f5576c;
+	transform: scale(1.05);
+	box-shadow: 0 8px 25px rgba(245, 87, 108, 0.2);
+	text-decoration: none;
+}
+
+/* ============================================================
+   📦 6. IMÁGENES, VIDEOS Y SEPARADORES
+   ============================================================ */
+img,
+video,
+table {
+	display: block;
+	max-width: 100% !important;
+	height: auto !important;
+	margin: 20px auto;
+	border-radius: 16px;
+	box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+	border: 2px solid rgba(255, 255, 255, 0.06);
+	transition: all 0.4s ease;
+}
+
+img:hover,
+video:hover {
+	transform: scale(1.01);
+	border-color: rgba(245, 87, 108, 0.3);
+	box-shadow: 0 30px 60px -15px rgba(245, 87, 108, 0.2);
+}
+
+hr {
+	border: none;
+	height: 2px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		#4facfe,
+		#f5576c,
+		#f093fb,
+		transparent
+	);
+	margin: 35px 0;
+	opacity: 0.5;
+}
+
+hr + p {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #f093fb;
+	border-left: none;
+	background: transparent;
+	letter-spacing: 1px;
+}
+
+hr + p strong {
+	color: #4facfe;
+}
+
+/* ============================================================
+   📦 7. TEMAS POR PÁGINA
+   ============================================================ */
+
+/* --- Fondos --- */
+body.page-accesorios {
+	background: linear-gradient(135deg, #1a0e0a, #2d1810, #1a0e0a) !important;
+}
+body.page-peliculas {
+	background: linear-gradient(135deg, #1a0a0a, #2d0a0a, #1a0a2d) !important;
+}
+body.page-videojuegos {
+	background: linear-gradient(135deg, #0a0a1a, #0d1a2d, #1a0a2d) !important;
+}
+body.page-salir {
+	background: linear-gradient(135deg, #0a1a0a, #0d2d1a, #1a2d2d) !important;
+}
+
+/* --- Contenedor oscuro para páginas con tema --- */
+body.page-accesorios > *:not(style),
+body.page-peliculas > *:not(style),
+body.page-videojuegos > *:not(style),
+body.page-salir > *:not(style) {
+	background: rgba(0, 0, 0, 0.75) !important;
+	backdrop-filter: blur(12px) !important;
+	-webkit-backdrop-filter: blur(12px) !important;
+	min-height: calc(100vh - 80px) !important;
+	min-height: calc(100dvh - 80px) !important;
+}
+
+/* --- Bordes laterales por tema --- */
+body.page-accesorios > *:not(style) {
+	border-left-color: rgba(255, 215, 0, 0.2) !important;
+	border-right-color: rgba(255, 215, 0, 0.2) !important;
+}
+body.page-peliculas > *:not(style) {
+	border-left-color: rgba(255, 71, 87, 0.2) !important;
+	border-right-color: rgba(255, 71, 87, 0.2) !important;
+}
+body.page-videojuegos > *:not(style) {
+	border-left-color: rgba(0, 255, 136, 0.2) !important;
+	border-right-color: rgba(0, 255, 136, 0.2) !important;
+}
+body.page-salir > *:not(style) {
+	border-left-color: rgba(123, 237, 159, 0.2) !important;
+	border-right-color: rgba(123, 237, 159, 0.2) !important;
+}
+
+/* --- H1 por tema --- */
+body.page-index h1 {
+	background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: none;
+	filter: drop-shadow(0 0 30px rgba(245, 87, 108, 0.4));
+	animation: shimmer 3s linear infinite;
+}
+
+body.page-accesorios h1 {
+	color: #ffd700 !important;
+	text-shadow:
+		0 0 30px rgba(255, 215, 0, 0.8),
+		0 0 60px rgba(255, 215, 0, 0.4),
+		0 4px 20px rgba(0, 0, 0, 0.9);
+	animation: glow-gold 2s ease-in-out infinite alternate;
+}
+
+body.page-peliculas h1 {
+	color: #ff4757 !important;
+	text-shadow:
+		0 0 30px rgba(255, 71, 87, 0.8),
+		0 0 60px rgba(255, 71, 87, 0.4),
+		0 4px 20px rgba(0, 0, 0, 0.9);
+	animation: glow-red 2s ease-in-out infinite alternate;
+}
+
+body.page-videojuegos h1 {
+	color: #00ff88 !important;
+	text-shadow:
+		0 0 30px rgba(0, 255, 136, 0.8),
+		0 0 60px rgba(0, 255, 136, 0.4),
+		0 4px 20px rgba(0, 0, 0, 0.9);
+	animation: glow-green 2s ease-in-out infinite alternate;
+}
+
+body.page-salir h1 {
+	color: #7bed9f !important;
+	text-shadow:
+		0 0 30px rgba(123, 237, 159, 0.8),
+		0 0 60px rgba(123, 237, 159, 0.4),
+		0 4px 20px rgba(0, 0, 0, 0.9);
+	animation: glow-green 2.5s ease-in-out infinite alternate;
+}
+
+/* --- H2 por tema --- */
+body.page-accesorios h2 {
+	color: #ffd700 !important;
+	border-bottom-color: rgba(255, 215, 0, 0.3);
+	text-shadow: 0 2px 20px rgba(255, 215, 0, 0.3);
+}
+body.page-peliculas h2 {
+	color: #ff4757 !important;
+	border-bottom-color: rgba(255, 71, 87, 0.3);
+	text-shadow: 0 2px 20px rgba(255, 71, 87, 0.3);
+}
+body.page-videojuegos h2 {
+	color: #00ff88 !important;
+	border-bottom-color: rgba(0, 255, 136, 0.3);
+	text-shadow: 0 2px 20px rgba(0, 255, 136, 0.3);
+}
+body.page-salir h2 {
+	color: #7bed9f !important;
+	border-bottom-color: rgba(123, 237, 159, 0.3);
+	text-shadow: 0 2px 20px rgba(123, 237, 159, 0.3);
+}
+
+/* ============================================================
+   📦 8. ANIMACIONES
+   ============================================================ */
+@keyframes shimmer {
+	0% {
+		background-position: -200% center;
+	}
+	100% {
+		background-position: 200% center;
+	}
+}
+
+@keyframes glow-gold {
+	0% {
+		text-shadow:
+			0 0 20px rgba(255, 215, 0, 0.6),
+			0 0 40px rgba(255, 215, 0, 0.3),
+			0 4px 20px rgba(0, 0, 0, 0.9);
+	}
+	100% {
+		text-shadow:
+			0 0 40px rgba(255, 215, 0, 1),
+			0 0 80px rgba(255, 215, 0, 0.6),
+			0 4px 30px rgba(0, 0, 0, 0.9);
+	}
+}
+
+@keyframes glow-red {
+	0% {
+		text-shadow:
+			0 0 20px rgba(255, 71, 87, 0.6),
+			0 0 40px rgba(255, 71, 87, 0.3),
+			0 4px 20px rgba(0, 0, 0, 0.9);
+	}
+	100% {
+		text-shadow:
+			0 0 40px rgba(255, 71, 87, 1),
+			0 0 80px rgba(255, 71, 87, 0.6),
+			0 4px 30px rgba(0, 0, 0, 0.9);
+	}
+}
+
+@keyframes glow-green {
+	0% {
+		text-shadow:
+			0 0 20px rgba(0, 255, 136, 0.6),
+			0 0 40px rgba(0, 255, 136, 0.3),
+			0 4px 20px rgba(0, 0, 0, 0.9);
+	}
+	100% {
+		text-shadow:
+			0 0 40px rgba(0, 255, 136, 1),
+			0 0 80px rgba(0, 255, 136, 0.6),
+			0 4px 30px rgba(0, 0, 0, 0.9);
+	}
+}
+
+@keyframes breathe {
+	0% {
+		opacity: 0.6;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* ============================================================
+   📦 9. FONDO DECORATIVO PARA LATERALES (Opción 2)
+   ============================================================ */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(79, 172, 254, 0.08) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 80% 50%,
+			rgba(245, 87, 108, 0.08) 0%,
+			transparent 60%
+		);
+	pointer-events: none;
+	transition: all 0.5s ease;
+	animation: breathe 6s ease-in-out infinite alternate;
+}
+
+/* --- Temas por página para el fondo decorativo --- */
+body.page-accesorios::before {
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(255, 215, 0, 0.12) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 80% 50%,
+			rgba(255, 215, 0, 0.06) 0%,
+			transparent 60%
+		);
+}
+body.page-peliculas::before {
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(255, 71, 87, 0.12) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 80% 50%,
+			rgba(255, 71, 87, 0.06) 0%,
+			transparent 60%
+		);
+}
+body.page-videojuegos::before {
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(0, 255, 136, 0.12) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 80% 50%,
+			rgba(0, 255, 136, 0.06) 0%,
+			transparent 60%
+		);
+}
+body.page-salir::before {
+	background:
+		radial-gradient(
+			circle at 20% 50%,
+			rgba(123, 237, 159, 0.12) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 80% 50%,
+			rgba(123, 237, 159, 0.06) 0%,
+			transparent 60%
+		);
+}
+
+/* ============================================================
+   📦 10. SELECTOR DE TEXTO Y UTILIDADES
+   ============================================================ */
+::selection {
+	background: #f5576c;
+	color: #fff;
+}
+
+/* Elimina espacios extra al final */
+body > *:not(style) > *:last-child {
+	margin-bottom: 0;
+}
+
+body > *:not(style)::after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+/* ============================================================
+   📦 11. RESPONSIVE
+   ============================================================ */
+
+/* --- Tablets y móviles grandes --- */
+@media (max-width: 768px) {
+	body {
+		padding: 10px;
+	}
+
+	body > *:not(style) {
+		padding: 25px 20px !important;
+		border-radius: 16px;
+		margin: 0 5px;
+	}
+
+	h1 {
+		font-size: 2rem !important;
+	}
+	h2 {
+		font-size: 1.5rem !important;
+		padding: 10px 15px !important;
+	}
+	p {
+		font-size: 0.95rem;
+		padding: 12px 15px;
+	}
+
+	ul {
+		flex-direction: column;
+		align-items: center;
+	}
+	ul li {
+		width: 100%;
+		text-align: center;
+		padding: 14px 20px;
+		font-size: 0.95rem;
+	}
+
+	img,
+	video {
+		width: 100% !important;
+		height: auto !important;
+	}
+}
+
+/* --- Móviles pequeños --- */
+@media (max-width: 480px) {
+	body > *:not(style) {
+		padding: 15px 12px !important;
+		border-radius: 12px;
+	}
+
+	h1 {
+		font-size: 1.6rem !important;
+	}
+	h2 {
+		font-size: 1.3rem !important;
+		padding: 8px 10px !important;
+	}
+	p {
+		font-size: 0.9rem;
+		padding: 10px 12px;
+	}
+}
+/* ============================================================
+   📦 13. AJUSTE DE ALTURA PARA VIDEOJUEGOS (ELIMINAR CAJA VACÍA)
+   ============================================================ */
+
+/* Elimina la altura mínima forzada en videojuegos */
+body.page-videojuegos > *:not(style) {
+	min-height: auto !important; /* Elimina el min-height */
+	height: auto !important; /* Se ajusta al contenido */
+	padding-bottom: 40px !important; /* Mantiene un espacio al final */
+}
+
+/* También aplica a las reglas específicas de contenedor oscuro */
+body.page-videojuegos > *:not(style) {
+	background: rgba(0, 0, 0, 0.75) !important;
+	backdrop-filter: blur(12px) !important;
+	-webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ============================================================
+   📦 13. BOTÓN "ATRÁS" CENTRADO EN TODAS LAS PÁGINAS
+   ============================================================ */
+
+/* El contenedor (h2 o h3) se centra */
+h2:has(.btn-atras),
+h3:has(.btn-atras) {
+	text-align: center !important;
+	border-bottom: none !important;
+	background: none !important;
+	padding: 0 !important;
+	margin: 30px 0 10px 0 !important;
+	width: 100% !important;
+	display: block !important;
+}
+
+/* El botón en sí */
+.btn-atras {
+	display: inline-block !important;
+	background: rgba(79, 172, 254, 0.15) !important;
+	padding: 12px 35px !important;
+	border-radius: 50px !important;
+	border: 2px solid rgba(79, 172, 254, 0.25) !important;
+	color: #4facfe !important;
+	font-weight: 700 !important;
+	font-size: 1.1rem !important;
+	text-decoration: none !important;
+	transition: all 0.3s ease !important;
+	box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2) !important;
+	letter-spacing: 0.5px !important;
+}
+
+.btn-atras:hover {
+	background: rgba(245, 87, 108, 0.25) !important;
+	border-color: #f5576c !important;
+	color: #f5576c !important;
+	transform: translateY(-3px) scale(1.03) !important;
+	box-shadow: 0 8px 30px rgba(245, 87, 108, 0.3) !important;
+	text-decoration: none !important;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+	.btn-atras {
+		padding: 10px 25px !important;
+		font-size: 1rem !important;
+	}
+}

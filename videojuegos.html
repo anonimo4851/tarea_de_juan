@@ -4,11 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>videojuegos</title>
+		<link rel="stylesheet" href="estilos.css" />
 	</head>
-	<body background="/fondo_videojuegos.jpeg">
-		<font color="black"
-			><h1>🎮 Videojuegos · Mi Mundo</h1>
+	<body class="page-videojuegos">
+		<div>
+			<h1>🎮 Videojuegos · Mi Mundo</h1>
 			<hr />
+
 			<p>
 				<strong>Los videojuegos para mí no son solo un pasatiempo;</strong> son
 				un espacio donde puedo ponerme a prueba, conectar con amigos y vivir
@@ -16,10 +18,12 @@
 				la exigencia técnica, la estrategia en tiempo real y la adrenalina pura
 				en formatos completamente distintos:
 			</p>
+
 			<img src="/videojuegos.jpeg" width="500" height="300" />
 			<video src="/videojuegos.mp4" width="400" height="300" controls></video>
 
 			<hr />
+
 			<h2>Geometry Dash</h2>
 			<p>
 				<strong>Geometry Dash</strong> representa la superación personal en su
@@ -28,14 +32,14 @@
 				perfecta.
 			</p>
 
-			<h2>⚽ FIFA</h2>
+			<h2>FIFA</h2>
 			<p>
 				<strong>FIFA</strong> saca mi lado más competitivo y táctico. Me encanta
 				por la pasión del fútbol, la lectura del rival en cada jugada y la
 				emoción de definir un partido en el último minuto.
 			</p>
 
-			<h2>💥 Call of Duty: Warzone</h2>
+			<h2>Call of Duty: Warzone</h2>
 			<p>
 				<strong>Call of Duty: Warzone</strong> me atrae por la tensión constante
 				y la necesidad de tomar decisiones rápidas bajo presión. Cada partida en
@@ -43,7 +47,7 @@
 				la puntería lo son todo.
 			</p>
 
-			<h2>🔨 Fortnite</h2>
+			<h2>Fortnite</h2>
 			<p>
 				<strong>Fortnite</strong> demuestra lo divertido que puede ser un juego
 				cuando combina la creatividad con la acción. La mecánica de construcción
@@ -51,7 +55,7 @@
 				anterior.
 			</p>
 
-			<h2>🎯 Counter-Strike</h2>
+			<h2>Counter-Strike</h2>
 			<p>
 				<strong>Counter-Strike</strong> es la definición de precisión,
 				disciplina y trabajo en equipo. Me gusta por la comunicación con mis
@@ -60,10 +64,22 @@
 			</p>
 
 			<hr />
+
 			<p>
 				<strong>✦</strong> Cada juego, una experiencia única <strong>✦</strong>
-			</p></font
-		>
-		<h2><a href="/index.html">atras</a></h2>
+			</p>
+
+			<!-- Enlace "atrás" dentro de un h2 para que herede el estilo del botón -->
+			<h2
+				style="
+					text-align: center;
+					border-bottom: none;
+					background: none;
+					padding: 0;
+				"
+			>
+				<a href="/index.html" class="btn-atras">⬅ atras</a>
+			</h2>
+		</div>
 	</body>
 </html>
